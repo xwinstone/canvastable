@@ -1,6 +1,6 @@
 {
   "name": "canvastable",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "a table that display mass of data for web with fastest speed.",
   "scripts": {
     "dev": "webpack-dev-server --open --content-base webpack --watch",
