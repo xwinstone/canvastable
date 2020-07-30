@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "lib": ["dom", "es6", "es5", "es2016.array.include", "es2015.promise", "es2017.object"],
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "typeRoots" : ["./typings"],
+    "declaration": true,
+    "esModuleInterop": true,
+    "noEmitHelpers": true,
+    "importHelpers": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*"
+  ]
+}
