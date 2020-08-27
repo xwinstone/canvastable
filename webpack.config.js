@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
@@ -14,22 +14,10 @@ const PATH_DIST = getPath('devdist');
 const MATCH_NODE_MODULES = '/node_modules/';
 
 const pkg = require(getPath('package.json'));
-const envVal = process.env.NODE_ENV || 'development';
-
-const configFilePath = getPath('config');
-
 const projectName = pkg.projectName;
 
-let configFile;
-
-try {
-  configFile = require(`${configFilePath}/${envVal}`)
-} catch (e) {
-  configFile = {}
-}
-
 module.exports = {
-  entry: PATH_SRC + '/test.jsx',
+  entry: PATH_SRC + '/test.tsx',
   output: {
     pathinfo: true,
     filename: '[name].[hash].js',
@@ -130,9 +118,9 @@ module.exports = {
       filename: 'test.html',
       template: getPath('src/test.html'),
     }),
-    new webpack.DefinePlugin({
-      'process.env': configFile
-    }),
+    // new webpack.DefinePlugin({
+    //   'process.env': configFile
+    // }),
     new webpack.HotModuleReplacementPlugin()
   ]
 };

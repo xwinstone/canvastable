@@ -34,5 +34,5 @@ node_modules
 
 dist
 
-src/test.jsx
+src/test.tsx
 src/test.html
