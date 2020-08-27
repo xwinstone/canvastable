@@ -6,7 +6,7 @@ const clean = require('gulp-clean');
 const ts = require('gulp-typescript');
 
 function typescript () {
-  return gulp.src(['src/**/*.ts', 'src/**/*.tsx'])
+  return gulp.src(['src/**/*.ts', 'src/**/*.tsx', '!src/test.tsx'])
     .pipe(ts.createProject('tsconfig.json')())
     .pipe(through2.obj(function z (file, encoding, next) {
       this.push(file.clone());
