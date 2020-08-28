@@ -1,15 +1,23 @@
 {
   "name": "x-canvas-table",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a table component got the highest performance that works on canvas.",
-  "keywords": ["canvas table", "canvas", "table", "grid"],
+  "keywords": [
+    "canvas table",
+    "canvas",
+    "table",
+    "grid"
+  ],
   "scripts": {
-    "dev": "webpack-dev-server --open --content-base webpack --watch",
-    "build": "gulp"
+    "dev": "webpack-dev-server --config ./webpack/webpack.dev.js --open --content-base",
+    "build:dist": "gulp",
+    "build:umd": "webpack --config ./webpack/webpack.prod.js"
   },
   "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "umd"
   ],
   "repository": "https://github.com/xwinstone/canvastable.git",
   "publishConfig": {
@@ -35,11 +43,11 @@
     "style-ext-html-webpack-plugin": "4.1.2",
     "style-loader": "1.2.1",
     "through2": "4.0.2",
+    "typescript": "4.0.2",
     "webpack": "4.44.1",
     "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.11.0",
-    "webpack-merge": "5.1.2",
-    "typescript": "4.0.2"
+    "webpack-merge": "5.1.2"
   },
   "dependencies": {}
 }

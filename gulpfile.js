@@ -16,10 +16,10 @@ function typescript () {
     }))
     .pipe(gulp.dest('dist'))
 }
+
 function typescriptDeclare() {
   return gulp.src(['src/**/*.d.ts'])
     .pipe(gulp.dest('dist'))
-
 }
 
 function style () {

@@ -31,8 +31,8 @@ node_modules
 .idea
 
 .docz
-
-dist
+dist/*
+umd/*
 
 src/test.tsx
 src/test.html
