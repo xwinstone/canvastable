@@ -10,10 +10,18 @@ import {HeaderTree} from "../table/HeaderTree";
 import {CanvasTableEvent} from "./TableEvent";
 import {CanvasIconFont} from "../component/IconFont";
 import {obj} from "../typings/common";
-
+import Button from "../component/Button";
+import Icon from "../component/Icon";
+import Layer from "../component/Layer";
+import Text from "../component/Text";
 const WRAPPER_PADDING = 0;
 
-export default class CanvasTable {
+class CanvasTable {
+  static Button = Button
+  static Icon = Icon
+  static Layer = Layer
+  static Text = Text
+
   style: ITableStyle = null;
 
   constructor(public props: ICanvasTableProps) {
@@ -283,3 +291,5 @@ export default class CanvasTable {
     window.removeEventListener('resize', this.onWindowResizeHandler);
   }
 }
+
+export default CanvasTable

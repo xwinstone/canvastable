@@ -15,9 +15,10 @@ module.exports = merge(webpackCommon, {
   entry: PATH_SRC + '/index.ts',
   output: {
     path: PATH_DIST,
-    filename: 'index.js',
+    filename: 'canvastable.min.js',
     library: 'CanvasTable',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    libraryExport: 'default'
   },
   mode: "production",
   plugins: [
