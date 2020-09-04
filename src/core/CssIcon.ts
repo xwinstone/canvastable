@@ -19,7 +19,7 @@ export default class CssIcon {
     link.href = url;
     document.head.appendChild(link);
     link.onload = () => {
-      checkFontReady(`12px ${fontName}`, callback)
+      checkFontReady(`14px ${fontName}`, callback)
     }
   };
 
@@ -28,13 +28,16 @@ export default class CssIcon {
   // }
 }
 
-function checkFontReady(font, callback) {
+function checkFontReady(font, callback, i = 0) {
+  if (i > 100) {
+    return
+  }
   requestAnimationFrame(() => {
     typeof callback === 'function' && callback()
     // @ts-ignore
     const loaded = document.fonts.check(font)
     if (!loaded) {
-      checkFontReady(font, callback)
+      checkFontReady(font, callback, ++i)
     }
   })
 }

@@ -18,14 +18,14 @@ a table component got the highest performance that works on canvas! 🚀
 >! it's just like a table implement on dom!
 
 ## Examples
-* basic usage: [click](https://codepen.io/xwinstone/pen/dyMWLgN)
-* display 100000 records: [demo](https://codepen.io/xwinstone/pen/abNWrpp)
-* load remote data with scroll: [demo](https://codepen.io/xwinstone/pen/MWymdBe)
+* basic usage: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_black">demo</a>
+* display 100000 records: <a href="https://codepen.io/xwinstone/pen/abNWrpp" target="_black">demo</a>
+* load remote data with scroll: <a href="https://codepen.io/xwinstone/pen/MWymdBe" target="_black">demo</a>
 * fixed header (setting by default, can't change yet)
-* fixed columns: [demo](https://codepen.io/xwinstone/pen/XWdRwog)
-* grouping table head: [demo](https://codepen.io/xwinstone/pen/yLOXRJd)
-* custom style: [demo](https://codepen.io/xwinstone/pen/NWNgOjo)
-* render icon component: [demo](https://codepen.io/xwinstone/pen/ExKwzvY)
+* fixed columns: <a href="https://codepen.io/xwinstone/pen/XWdRwog" target="_black">demo</a>
+* grouping table head: <a href="https://codepen.io/xwinstone/pen/yLOXRJd" target="_black">demo</a>
+* custom style: <a href="https://codepen.io/xwinstone/pen/NWNgOjo" target="_black">demo</a>
+* render icon component: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_black">demo</a>
 
 ## Usage
 ### import
@@ -70,7 +70,7 @@ ct.source = dataSource;
 result:
 ![basic usage](./assets/basic-usage.png)
 
-online demo: [click](https://codepen.io/xwinstone/pen/dyMWLgN)
+online demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_black">click</a>
 
 ## API
 ### Table
@@ -175,7 +175,7 @@ interface ILayerStyleProps {
 }
 ```
 
-> example creating complex render: [demo](https://codepen.io/xwinstone/pen/Rwajgqe)
+> example creating complex render: <a href="https://codepen.io/xwinstone/pen/Rwajgqe" target="_black">demo</a>
 
 > the following components is all derived from Layer.
 
@@ -197,7 +197,7 @@ const columns = [
     title: 'Action',
     render: () => {
       return new Icon({
-        content: 'f000', // icon class's attribute content
+        content: 'e73f', // icon class's attribute content
         style: { fontSize: '1.5em', top: 0, left: 0, width: 50, color: '#1890ff'},
         event: {
           onClick: () => {
@@ -214,24 +214,22 @@ step 3: set `iconFontName` and `iconUrl`.
 let's take font-awesome:
 ```css
 @font-face {
-  font-family: 'FontAwesome'; // THIS IS iconFontName
-  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'iconfont'; // THIS IS iconFontName
+  url('//at.alicdn.com/t/font_1624914_k562285fsc.woff?t=1599200870784') format('woff'),
 }
-.fa-glass:before {
-  content: "\f000"; // THIS IS content property of Icon Component
+.iconhome1:before {
+  content: "\e73f"; // THIS IS content property of Icon Component, but whitout '\'.
 }
 ```
 
 ```js
 new CanvasTable({
-  iconUrl: '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css',
-  iconFontName: 'FontAwesome'
+  iconUrl: '//at.alicdn.com/t/font_1624914_k562285fsc.css',
+  iconFontName: 'iconfont'
 })
 ```
 
-> full example: [demo](https://codepen.io/xwinstone/pen/ExKwzvY)
+> full example: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_black">demo</a>
 
 ### Text Component
 
