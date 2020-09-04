@@ -18,14 +18,14 @@ a table component got the highest performance that works on canvas! 🚀
 >! it's just like a table implement on dom!
 
 ## Examples
-* basic usage: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_black">demo</a>
-* display 100000 records: <a href="https://codepen.io/xwinstone/pen/abNWrpp" target="_black">demo</a>
-* load remote data with scroll: <a href="https://codepen.io/xwinstone/pen/MWymdBe" target="_black">demo</a>
+* basic usage: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_blank">demo</a>
+* display 100000 records: <a href="https://codepen.io/xwinstone/pen/abNWrpp" target="_blank">demo</a>
+* load remote data with scroll: <a href="https://codepen.io/xwinstone/pen/MWymdBe" target="_blank">demo</a>
 * fixed header (setting by default, can't change yet)
-* fixed columns: <a href="https://codepen.io/xwinstone/pen/XWdRwog" target="_black">demo</a>
-* grouping table head: <a href="https://codepen.io/xwinstone/pen/yLOXRJd" target="_black">demo</a>
-* custom style: <a href="https://codepen.io/xwinstone/pen/NWNgOjo" target="_black">demo</a>
-* render icon component: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_black">demo</a>
+* fixed columns: <a href="https://codepen.io/xwinstone/pen/XWdRwog" target="_blank">demo</a>
+* grouping table head: <a href="https://codepen.io/xwinstone/pen/yLOXRJd" target="_blank">demo</a>
+* custom style: <a href="https://codepen.io/xwinstone/pen/NWNgOjo" target="_blank">demo</a>
+* render icon component: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_blank">demo</a>
 
 ## Usage
 ### import
@@ -70,7 +70,7 @@ ct.source = dataSource;
 result:
 ![basic usage](./assets/basic-usage.png)
 
-online demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_black">click</a>
+online demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_blank">click</a>
 
 ## API
 ### Table
@@ -175,7 +175,7 @@ interface ILayerStyleProps {
 }
 ```
 
-> example creating complex render: <a href="https://codepen.io/xwinstone/pen/Rwajgqe" target="_black">demo</a>
+> example creating complex render: <a href="https://codepen.io/xwinstone/pen/Rwajgqe" target="_blank">demo</a>
 
 > the following components is all derived from Layer.
 
@@ -229,7 +229,7 @@ new CanvasTable({
 })
 ```
 
-> full example: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_black">demo</a>
+> full example: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_blank">demo</a>
 
 ### Text Component
 
