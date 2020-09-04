@@ -18,7 +18,6 @@ export declare module IComponent {
 
   interface ILayerProps{
     ctx?: CanvasRenderingContext2D
-    size?: string;
     style?: ILayerStyleProps
     hover?: ILayerStyleProps
     event?: IEventCollection
@@ -77,6 +76,6 @@ export declare module IComponent {
   }
 
   interface ILayerIconProps extends ILayerProps {
-    icon?: string
+    content?: string
   }
 }

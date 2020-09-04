@@ -40,7 +40,6 @@ export declare module ICanvasTable {
 
   interface ITableEventHandler {
     (record: obj, rowIndex: number): IEventCollection
-
   }
 
   // interface ITableEventCollection {
@@ -118,7 +117,8 @@ export declare module ICanvasTable {
     onScrollLoad?: () => Promise<any>
     scrollLoadHeight?: number
     onRow?: ITableEventHandler
-    iconfont?: string
+    iconUrl?: string;
+    iconFontName?: string;
   }
 
   interface IBodyCellProps extends ILayerProps {

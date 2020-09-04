@@ -51,7 +51,7 @@ export default class LayerButton extends Layer {
       this.roundRect();
       this.ctx.stroke();
     }
-    if (icon && this.table.iconFont.isLoaded) {
+    if (icon) {
       this.iconRender()
     }
     // drawSvg(this.ctx, this.iconSvg, this.left + this.padding.left, this.top + this.padding.top);

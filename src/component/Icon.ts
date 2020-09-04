@@ -26,11 +26,10 @@ export default class LayerIcon extends Layer {
   }
 
   render() {
-    const {icon} = this.props;
-
-    if (icon) {
-      const hex = '0' + icon.slice(2, -1);
-      this.drawText(String.fromCharCode(parseInt(hex)));
+    const {content} = this.props;
+    if (content) {
+      // const hex = '0' + icon.slice(2, -1);
+      this.drawText(String.fromCharCode(parseInt(`0x${content}`)));
     }
   }
 

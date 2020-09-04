@@ -8,7 +8,7 @@ import {debounce, isFunction, isNotEmptyArray, percentCalc} from "../utils/utils
 import h from "../utils/h";
 import {HeaderTree} from "../table/HeaderTree";
 import {CanvasTableEvent} from "./TableEvent";
-import {CanvasIconFont} from "../component/IconFont";
+import CssIcon from "./CssIcon";
 import {obj} from "../typings/common";
 import Button from "../component/Button";
 import Icon from "../component/Icon";
@@ -30,11 +30,11 @@ class CanvasTable {
   outerHeight: number = 0;
   outerWidth: number = 0;
   ctx: CanvasRenderingContext2D = null;
-  iconFont: CanvasIconFont;
+  iconFont: CssIcon;
   event: CanvasTableEvent;
 
   init (isFirstTime = true) {
-    const {container, iconfont, style} = this.props;
+    const {container, iconUrl, iconFontName, style} = this.props;
     this.styleCalc();
     this.domInit();
     if (isFirstTime) {
@@ -47,10 +47,11 @@ class CanvasTable {
     this.componentsInit();
 
     if (isFirstTime) {
-      if (iconfont) {
-        this.iconFont = new CanvasIconFont({
-          src: iconfont,
-          table: this
+      if (iconUrl) {
+        this.iconFont = new CssIcon({
+          src: iconUrl,
+          table: this,
+          fontName: iconFontName
         })
       }
       if (typeof style.height === 'string' || typeof style.width === 'string') {

@@ -13,7 +13,7 @@ import {BodyCell} from "../table/BodyCell";
 import {obj} from "../typings/common";
 
 export default class Layer extends Component {
-  static defaultStyle: ILayerStyleProps = {
+  private static defaultStyle: ILayerStyleProps = {
     top: 0,
     left: 0,
     width:'100%',
@@ -35,7 +35,7 @@ export default class Layer extends Component {
       child.parent = this
     });
     if (isNotEmpty(props.event)) {
-      for (let key in props.event) {
+      for (const key in props.event) {
         this.on(key, props.event[key])
       }
     }
@@ -54,7 +54,7 @@ export default class Layer extends Component {
   }
 
   get table(): CanvasTable {
-    let cell:BodyCell = <any>treeBackFind(this, layer => !layer.parent);
+    const cell:BodyCell = <any>treeBackFind(this, layer => !layer.parent);
     return cell.table
   }
   parent: Layer = null;
@@ -209,25 +209,14 @@ export default class Layer extends Component {
         ctx.textAlign = 'left';
     }
 
-
-
     if (this.style.color) {
       ctx.fillStyle = this.style.color;
     }
 
-    let fontSize = this.table.style.fontSize;
-    let fontFamily = this.table.style.fontFamily;
-    let fontWeight = 'normal';
+    const fontSize = this.style.fontSize || this.table.style.fontSize;
+    const fontFamily = this.style.fontFamily || this.table.style.fontFamily;
+    const fontWeight = this.style.fontWeight || 'normal';
 
-    if (this.style.fontWeight) {
-      fontWeight = this.style.fontWeight;
-    }
-    if (this.style.fontSize) {
-      fontSize = this.style.fontSize
-    }
-    if (this.style.fontFamily) {
-      fontFamily = this.style.fontFamily
-    }
     ctx.font = [fontWeight, fontSize, fontFamily].join(' ');
     // console.log(left, this.column.width, top , this.row.height)
     ctx.fillText(str, x, y + this.padding.top);
