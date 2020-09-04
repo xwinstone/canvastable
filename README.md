@@ -25,6 +25,7 @@ a table component got the highest performance that works on canvas! 🚀
 * fixed columns: [demo](https://codepen.io/xwinstone/pen/XWdRwog)
 * grouping table head: [demo](https://codepen.io/xwinstone/pen/yLOXRJd)
 * custom style: [demo](https://codepen.io/xwinstone/pen/NWNgOjo)
+* render icon component: [demo](https://codepen.io/xwinstone/pen/ExKwzvY)
 
 ## Usage
 ### import
@@ -82,7 +83,8 @@ online demo: [click](https://codepen.io/xwinstone/pen/dyMWLgN)
 | `onScrollLoad` | Callback executed when table scroll to bottom(scrollLoadHeight) | `() => Promise<any>` | - |
 | `scrollLoadHeight` | distance to trigger onScrollLoad | `number` | 150 |
 | `onRow` | Set event props on per row	 | `ITableEventHandler` | - |
-| `iconfont` | iconfont css address | `string` | - |
+| `iconUrl` | icon font css address | `string` | - |
+| `iconFontName` | font family | `string` | - |
 
 ### IColumn
 One of the Table columns prop for describing the table's columns.
@@ -137,3 +139,102 @@ new CanvasTable({
     }
 })
 ```
+
+### Layer Component
+it's the basic component in canvas table. you can think it as a div in HTML,
+it usually used on `render` property of `IColumn` interface.
+you can use it to build a complex component to render.
+
+let's see what we can do.
+
+| Property | Description | Type | Default 
+| :----: | :----: | :----: | :----: |
+| `style` | style of layer | `ILayerStyleProps` | -
+| `event` | event on layer | `IEventCollection` | - 
+| `popTitle` | set title attribute a canvas element | `string` | -
+| `children` | children of layer | `Layer[]` | -
+
+#### ILayerStyleProps
+if you know css, you will know how to use it immediately.
+```ts
+interface ILayerStyleProps {
+  top?: number // assume it's top attribute and when position: absolute
+  left?: number // assume it's left attribute and when position: absolute
+  width?: number | string // number for px, string for percentage of parent
+  height?: number | string  // number for px, string for percentage of parent
+  padding?: number | number[]  // same as css
+  color?: string               // same as css
+  backgroundColor?: string;    // same as css
+  border?: string | string[]   // same as css
+  fontFamily?: string          // same as css
+  fontSize?: string            // same as css
+  fontWeight?: 'normal' | 'bold' 
+  zIndex?: number              // same as css
+  align?: 'left' | 'center' | 'right'
+  overflow?: 'hidden' | 'ellipsis'
+}
+```
+
+> example creating complex render: [demo](https://codepen.io/xwinstone/pen/Rwajgqe)
+
+> the following components is all derived from Layer.
+
+### Icon Component
+
+it's provide `iconUrl` and `iconFontName` two props and Icon component to support rendering css font icon,
+`iconUrl` indicates a css url, `iconFontName` means the icon font family.
+
+#### How to use?
+
+step 1: import Icon component
+```js
+const { Icon } = CanvasTable
+```
+step 2: use render property in columns 
+```js
+const columns = [
+  {
+    title: 'Action',
+    render: () => {
+      return new Icon({
+        content: 'f000', // icon class's attribute content
+        style: { fontSize: '1.5em', top: 0, left: 0, width: 50, color: '#1890ff'},
+        event: {
+          onClick: () => {
+            alert('button click')
+          }
+        }
+      })
+    }
+  }
+]
+```
+
+step 3: set `iconFontName` and `iconUrl`.
+let's take font-awesome:
+```css
+@font-face {
+  font-family: 'FontAwesome'; // THIS IS iconFontName
+  src: url('../fonts/fontawesome-webfont.eot?v=4.7.0');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa-glass:before {
+  content: "\f000"; // THIS IS content property of Icon Component
+}
+```
+
+```js
+new CanvasTable({
+  iconUrl: '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css',
+  iconFontName: 'FontAwesome'
+})
+```
+
+> full example: [demo](https://codepen.io/xwinstone/pen/ExKwzvY)
+
+### Text Component
+
+| Property | Description | Type | Default 
+| :----: | :----: | :----: | :----: |
+| `text` | text to show | `string` | -
