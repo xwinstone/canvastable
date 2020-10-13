@@ -15,7 +15,7 @@ class Tooltip {
     const clientRect = layer.table.wrapper.getBoundingClientRect()
     const top = layer.top + clientRect.top
     const left = layer.left + clientRect.left + layer.width / 2
-    this.wrapper.style.top = top - 5 + 'px'
+    this.wrapper.style.top = top + 'px'
     this.wrapper.style.left = left + 'px'
   }
 

@@ -99,10 +99,11 @@
     transition-property: transform,visibility,opacity;
     padding: 8px;
     border-radius: 4px;
-    transform: translate3d(-50%, -100%, 0);
+    transform: translate3d(-50%, -100% - 20, 0);
+    display: none;
 
     &:before {
-      bottom: -5px;
+      bottom: -4px;
       left: 50%;
       transform: translateX(-50%);
       transform-origin: center top;
@@ -112,7 +113,7 @@
       height: 0;
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
-      border-top: 5px solid rgba(0,0,0,0.85);
+      border-top: 4px solid rgba(0,0,0,0.85);
     }
   }
 }
