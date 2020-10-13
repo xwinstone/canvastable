@@ -117,8 +117,6 @@ export declare module ICanvasTable {
     onScrollLoad?: () => Promise<any>
     scrollLoadHeight?: number
     onRow?: ITableEventHandler
-    iconUrl?: string;
-    iconFontName?: string;
   }
 
   interface IBodyCellProps extends ILayerProps {

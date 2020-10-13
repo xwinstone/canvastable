@@ -24,7 +24,8 @@ export default class Layer extends Component {
     // fontSize: number
     zIndex: 0,
     align: 'left',
-    overflow: 'ellipsis'
+    overflow: 'ellipsis',
+    verticalAlign: 'middle'
   };
   constructor(protected props: ILayerProps) {
     super();
@@ -41,10 +42,19 @@ export default class Layer extends Component {
     }
     if (props.popTitle) {
       this.on('onMouseEnter', () => {
-        this.table.wrapper.title = props.popTitle;
+        this.table.tooltip.show(props.popTitle, this)
       });
       this.on('onMouseLeave', () => {
-        this.table.wrapper.title = '';
+        this.table.tooltip.hide()
+      })
+    }
+
+    if (!props.disabled && props.event) {
+      this.on('onMouseEnter', () => {
+        this.ctx.canvas.parentElement.style.cursor = 'pointer';
+      });
+      this.on('onMouseLeave', () => {
+        this.ctx.canvas.parentElement.style.cursor = 'auto';
       })
     }
   }
@@ -81,19 +91,44 @@ export default class Layer extends Component {
     // this.style.
   }
   get isRender () {
-    let vertical = !(this.left + this.width < 0 || this.left > this.ctx.canvas.width);
-    let horizontal = !(this.top + this.height < 0 || this.top > this.ctx.canvas.height);
+    const vertical = !(this.left + this.width < 0 || this.left > this.ctx.canvas.width);
+    const horizontal = !(this.top + this.height < 0 || this.top > this.ctx.canvas.height);
     return vertical && horizontal
   }
 
-  get left () {
-    let parentLeft = this.parent ? this.parent.left + this.parent.padding.left: 0;
-    return parentLeft + this.style.left
+  get sibings () {
+    return this.parent ? this.parent.children || [] : []
   }
 
-  get top () {
-    let parentTop = this.parent ? this.parent.top + this.parent.padding.top: 0;
-    return parentTop + this.style.top
+  get left ():number {
+    const parent = this.parent
+    const parentLeft = parent ? parent.left + parent.padding.left : 0;
+    let preSiblingsLeft = 0
+    for (let pre of this.sibings) {
+      if (pre === this) {
+        break
+      }
+      preSiblingsLeft += pre.width + (parent.props.gutter || 0)
+    }
+    return parentLeft + preSiblingsLeft + this.style.left
+  }
+
+  get top ():number {
+    const parent = this.parent
+    let verticalTop = 0
+    if (parent) {
+      switch (this.style.verticalAlign) {
+        case 'bottom':
+          verticalTop = parent.height - this.height
+          break;
+        case 'middle':
+          verticalTop = (parent.height - this.height) / 2
+      }
+    }
+
+    const parentTop = parent ? parent.top + parent.padding.top: 0;
+    // console.log(parentTop, verticalTop, this.style.top )
+    return parentTop + verticalTop + this.style.top
   }
 
   get innerWidth () {
@@ -101,7 +136,7 @@ export default class Layer extends Component {
   }
 
   get width ():number {
-    let parentInnerWidth = this.parent ? this.parent.innerWidth : 0;
+    const parentInnerWidth = this.parent ? this.parent.innerWidth : 0;
     return percentCalc(this.style.width, () => this.parent ? parentInnerWidth : 0);
   }
 
@@ -110,7 +145,7 @@ export default class Layer extends Component {
   }
 
   get height (): number {
-    let parentInnerHeight = this.parent ? this.parent.innerHeight : 0;
+    const parentInnerHeight = this.parent ? this.parent.innerHeight : 0;
     return percentCalc(this.style.height, () => this.parent ? parentInnerHeight : 0);
   }
 
@@ -231,6 +266,7 @@ export default class Layer extends Component {
     }
     this.eventHandlers[name].push(handler);
   }
+
   off (name: string, handler?: Function){
     const handlers = this.eventHandlers[name];
     if (handlers) {
@@ -246,6 +282,9 @@ export default class Layer extends Component {
   }
 
   trigger (type: keyof IEventCollection, event: LayerEvent) {
+    if (this.props.disabled) {
+      return
+    }
     const handlers = this.eventHandlers[type];
     handlers && handlers.forEach((handler) => {
       typeof handler === 'function' && handler(event);

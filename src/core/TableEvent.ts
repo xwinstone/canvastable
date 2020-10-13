@@ -12,11 +12,11 @@ export class CanvasTableEvent {
 
   init () {
     const wrapper = this.table.wrapper;
-    wrapper.onclick = event => this.eventHandler('onClick', event);
-    wrapper.ondblclick = event => this.eventHandler('onDoubleClick', event);
-    wrapper.oncontextmenu = event => this.eventHandler('onContextMenu', event);
-    wrapper.onmousemove = event => this.moveEventHandler(event);
-    wrapper.onmouseleave = event => this.onMouseLeave(event);
+    wrapper.addEventListener('click', e => this.eventHandler('onClick', e))
+    wrapper.addEventListener('dblclick', e => this.eventHandler('onDoubleClick', e))
+    wrapper.addEventListener('contextmenu', e => this.eventHandler('onContextMenu', e))
+    wrapper.addEventListener('mousemove', e => this.moveEventHandler(e))
+    wrapper.addEventListener('mouseleave', e => this.onMouseLeave(e))
   }
 
   eventX = 0;

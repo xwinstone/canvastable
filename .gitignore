@@ -34,5 +34,5 @@ node_modules
 dist/*
 umd/*
 
-src/test.tsx
-src/test.html
+src/test/test.tsx
+src/test/test.html

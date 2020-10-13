@@ -52,8 +52,7 @@ module.exports = {
               name: '[name].[hash].[ext]',
               outputPath: 'images/'
             }
-          },
-          'image-webpack-loader'
+          }
         ],
         exclude: MATCH_NODE_MODULES,
         include: PATH_SRC

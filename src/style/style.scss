@@ -88,4 +88,31 @@
       display: inline-block;
     }
   }
+
+  .x-tooltip {
+    position: fixed;
+    background-color: rgba(0,0,0,0.85);
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.4;
+    outline: 0;
+    transition-property: transform,visibility,opacity;
+    padding: 8px;
+    border-radius: 4px;
+    transform: translate3d(-50%, -100%, 0);
+
+    &:before {
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      transform-origin: center top;
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid rgba(0,0,0,0.85);
+    }
+  }
 }

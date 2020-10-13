@@ -21,7 +21,9 @@ export declare module IComponent {
     style?: ILayerStyleProps
     hover?: ILayerStyleProps
     event?: IEventCollection
+    gutter?: number
     popTitle?: string
+    disabled?: boolean
     children?: Layer[]
   }
 
@@ -44,6 +46,7 @@ export declare module IComponent {
     zIndex?: number
     align?: 'left' | 'center' | 'right'
     overflow?: 'hidden' | 'ellipsis'
+    verticalAlign?: 'top' | 'middle' | 'bottom'
   }
 
   interface ILayerBorderStyle {
@@ -66,6 +69,7 @@ export declare module IComponent {
     zIndex?: number
     align?: 'left' | 'center' | 'right'
     overflow?: 'hidden' | 'ellipsis'
+    verticalAlign?: 'top' | 'middle' | 'bottom'
   }
 
   interface ILayerButtonProps extends ILayerProps {
@@ -73,9 +77,5 @@ export declare module IComponent {
     iconSize?: string
     text?: object
     type?: 'primary' | 'link' | 'default'
-  }
-
-  interface ILayerIconProps extends ILayerProps {
-    content?: string
   }
 }

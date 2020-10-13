@@ -17,10 +17,12 @@ export class BodyCell extends LayerText {
       }
     });
     this.on('onMouseEnter', () => {
-      this.table.wrapper.title = this.text;
+      if (this.textEllipsis.length !== this.text.length && this.textEllipsis !== this.text) {
+        this.table.tooltip.show(this.text, this)
+      }
     });
     this.on('onMouseLeave', () => {
-      this.table.wrapper.title = '';
+      this.table.tooltip.hide()
     })
   }
 

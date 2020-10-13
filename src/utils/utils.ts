@@ -94,16 +94,16 @@ export const cssParser = {
   }
 };
 
-export const throttling = function(action, delay) { // 函数节流
-  let last = 0;
-  return function(...args){
-    let curr = + new Date();
-    if (curr - last > delay){
-      action.apply(this, args) ;
-      last = curr
-    }
-  }
-};
+// export const throttling = function(action, delay) { // 函数节流
+//   let last = 0;
+//   return function(...args){
+//     let curr = + new Date();
+//     if (curr - last > delay){
+//       action.apply(this, args) ;
+//       last = curr
+//     }
+//   }
+// };
 
 export const debounce = function (method, delay){ // 函数防抖
   let timer = null;

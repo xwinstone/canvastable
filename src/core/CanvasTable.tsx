@@ -8,19 +8,19 @@ import {debounce, isFunction, isNotEmptyArray, percentCalc} from "../utils/utils
 import h from "../utils/h";
 import {HeaderTree} from "../table/HeaderTree";
 import {CanvasTableEvent} from "./TableEvent";
-import CssIcon from "./CssIcon";
 import {obj} from "../typings/common";
 import Button from "../component/Button";
-import Icon from "../component/Icon";
 import Layer from "../component/Layer";
 import Text from "../component/Text";
+import Svg from "../component/Svg";
+import Tooltip from './Tooltip';
 const WRAPPER_PADDING = 0;
 
 class CanvasTable {
   static Button = Button
-  static Icon = Icon
   static Layer = Layer
   static Text = Text
+  static Svg = Svg
 
   style: ITableStyle = null;
 
@@ -30,11 +30,11 @@ class CanvasTable {
   outerHeight: number = 0;
   outerWidth: number = 0;
   ctx: CanvasRenderingContext2D = null;
-  iconFont: CssIcon;
-  event: CanvasTableEvent;
+  event: CanvasTableEvent = null;
+  tooltip: Tooltip = null;
 
   init (isFirstTime = true) {
-    const {container, iconUrl, iconFontName, style} = this.props;
+    const {container, style} = this.props;
     this.styleCalc();
     this.domInit();
     if (isFirstTime) {
@@ -47,13 +47,6 @@ class CanvasTable {
     this.componentsInit();
 
     if (isFirstTime) {
-      if (iconUrl) {
-        this.iconFont = new CssIcon({
-          src: iconUrl,
-          table: this,
-          fontName: iconFontName
-        })
-      }
       if (typeof style.height === 'string' || typeof style.width === 'string') {
         window.addEventListener('resize', this.onWindowResizeHandler)
       }
@@ -76,7 +69,7 @@ class CanvasTable {
   }
 
   ctxInit () {
-    this.ctx = this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d', { alpha: false });
     this.ctx.setTransform(PIXEL_RATIO, 0, 0, PIXEL_RATIO, 0, 0);
     this.ctx.fillStyle = this.style.textColor;
     this.ctx.font = this.style.fontSize + ' ' + this.style.fontFamily;
@@ -217,6 +210,7 @@ class CanvasTable {
 
     this.scrollPosition = {scrollLeft, scrollTop};
     this.selectionCell && this.selectionCell.classList.remove('show')
+    this.tooltip && this.tooltip.hide()
   };
 
   resize () {
@@ -286,6 +280,9 @@ class CanvasTable {
       </Scroller>
     );
     this.wrapper.appendChild(scroll.wrapper);
+
+    this.tooltip = <Tooltip />
+    this.wrapper.appendChild(this.tooltip.wrapper);
   }
 
   destroy () {
