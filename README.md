@@ -1,4 +1,7 @@
 # canvas-table
+
+English | <a href="./doc/README_CN.md">中文</a>
+
 a table component got the highest performance that works on canvas! 🚀
 
 14.7kb gizped, no dependency!
@@ -74,7 +77,7 @@ result:
 online demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_blank">click</a>
 
 ## API
-### Table
+### CanvasTable
 | Property | Description | Type | Default 
 | :----: | :----: | :----: | :----: |
 | `container` | Container element for table | `HTMLElement` | - |
@@ -84,10 +87,8 @@ online demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_blank">
 | `onScrollLoad` | Callback executed when table scroll to bottom(scrollLoadHeight) | `() => Promise<any>` | - |
 | `scrollLoadHeight` | distance to trigger onScrollLoad | `number` | 150 |
 | `onRow` | Set event props on per row	 | `ITableEventHandler` | - |
-| `iconUrl` | icon font css address | `string` | - |
-| `iconFontName` | font family | `string` | - |
 
-### IColumn
+### IColumnProps
 One of the Table columns prop for describing the table's columns.
 
 | Property | Description | Type | Default 
