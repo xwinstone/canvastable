@@ -1,6 +1,6 @@
 {
   "name": "x-canvas-table",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a table component got the highest performance that works on canvas.",
   "keywords": [
     "canvas table",

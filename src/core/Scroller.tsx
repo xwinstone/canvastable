@@ -1,3 +1,5 @@
+/** @jsx h */
+
 import h, {createRef} from "../utils/h";
 import {ICanvasTable} from "../typings/CanvasTable";
 type ITableScrollerProps = ICanvasTable.ITableScrollerProps;

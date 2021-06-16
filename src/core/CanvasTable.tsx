@@ -1,3 +1,5 @@
+/** @jsx h */
+
 import {DEFAULT_STYLE, PIXEL_RATIO} from "../style/style";
 import {ICanvasTable} from "../typings/CanvasTable";
 import {BodySection} from "../table/Body";

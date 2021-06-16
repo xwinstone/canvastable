@@ -1,14 +1,3 @@
-const path = require('path');
-const fs = require('fs');
-const appDirectory = fs.realpathSync(process.cwd());
-
-function getPath (dir = '') {
-  return path.resolve(appDirectory, dir)
-}
-
-const PATH_SRC = getPath('src');
-const MATCH_NODE_MODULES = '/node_modules/';
-
 module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts', '.scss', '.css']
@@ -17,8 +6,6 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        exclude: MATCH_NODE_MODULES,
-        include: PATH_SRC,
         use: [
           'style-loader',
           'css-loader',
@@ -49,8 +36,6 @@ module.exports = {
             }
           }
         ],
-        exclude: MATCH_NODE_MODULES,
-        include: PATH_SRC
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/i,
