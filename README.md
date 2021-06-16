@@ -13,6 +13,7 @@ a table component got the highest performance that works on canvas! 🚀
 * custom style config. 💄
 * custom icon support. 👍
 * tooltip for every component. 🔎
+* write with typescript. 👔
 * you can even create your own component to display!!! 💖
 
 >! it's just like a table implement on dom!
@@ -179,16 +180,16 @@ interface ILayerStyleProps {
 
 > the following components is all derived from Layer.
 
-### Icon Component
+### Render A Icon Component
 
-it's provide `iconUrl` and `iconFontName` two props and Icon component to support rendering css font icon,
-`iconUrl` indicates a css url, `iconFontName` means the icon font family.
+it's provide a Svg Component to support rendering svg file,
 
 #### How to use?
 
-step 1: import Icon component
+step 1: import svg file && Svg component
 ```js
-const { Icon } = CanvasTable
+import Home from '@/assets/svg/home.svg'
+const { Svg } = CanvasTable
 ```
 step 2: use render property in columns 
 ```js
@@ -196,37 +197,17 @@ const columns = [
   {
     title: 'Action',
     render: () => {
-      return new Icon({
-        content: 'e73f', // icon class's attribute content
-        style: { fontSize: '1.5em', top: 0, left: 0, width: 50, color: '#1890ff'},
+      return new Svg({
+        popTitle: 'click me',
+        path: Home,
+        style: {width: 30, height: 30, color: '#1890ff'},
         event: {
-          onClick: () => {
-            alert('button click')
-          }
+          onClick: () => {alert('button click')}
         }
       })
     }
   }
 ]
-```
-
-step 3: set `iconFontName` and `iconUrl`.
-let's take font-awesome:
-```css
-@font-face {
-  font-family: 'iconfont'; // THIS IS iconFontName
-  url('//at.alicdn.com/t/font_1624914_k562285fsc.woff?t=1599200870784') format('woff'),
-}
-.iconhome1:before {
-  content: "\e73f"; // THIS IS content property of Icon Component, but whitout '\'.
-}
-```
-
-```js
-new CanvasTable({
-  iconUrl: '//at.alicdn.com/t/font_1624914_k562285fsc.css',
-  iconFontName: 'iconfont'
-})
 ```
 
 > full example: <a href="https://codepen.io/xwinstone/pen/ExKwzvY" target="_blank">demo</a>
@@ -236,3 +217,4 @@ new CanvasTable({
 | Property | Description | Type | Default 
 | :----: | :----: | :----: | :----: |
 | `text` | text to show | `string` | -
+
