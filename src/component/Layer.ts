@@ -3,14 +3,15 @@ import {cssParser, isEmpty, isNotEmpty, isNotEmptyArray, percentCalc} from "../u
 import {treeBackFind, treeInherit} from "../utils/tree";
 import {drawLine, drawRect} from "../utils/draw";
 import {IComponent} from "../typings/Component";
-import ILayerStyleProps = IComponent.ILayerStyleProps;
-import ILayerProps = IComponent.ILayerProps;
-import IEventCollection = IComponent.IEventCollection;
 import {LayerEvent} from "../core/LayerEvent";
-import ILayerStyle = IComponent.ILayerStyle;
 import CanvasTable from "../core/CanvasTable";
 import {BodyCell} from "../table/BodyCell";
 import {obj} from "../typings/common";
+
+type ILayerStyle = IComponent.ILayerStyle;
+type ILayerStyleProps = IComponent.ILayerStyleProps;
+type ILayerProps = IComponent.ILayerProps;
+type IEventCollection = IComponent.IEventCollection;
 
 export default class Layer extends Component {
   private static defaultStyle: ILayerStyleProps = {

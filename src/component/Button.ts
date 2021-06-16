@@ -1,6 +1,6 @@
 import Layer from './Layer';
 import {IComponent} from '../typings/Component';
-import ILayerButtonProps = IComponent.ILayerButtonProps;
+type ILayerButtonProps = IComponent.ILayerButtonProps;
 
 export default class LayerButton extends Layer {
 

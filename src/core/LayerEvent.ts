@@ -1,7 +1,8 @@
 import {IComponent} from "../typings/Component";
-import IEventCollection = IComponent.IEventCollection;
 import Layer from "../component/Layer";
-import ILayerEventProps = IComponent.ILayerEventProps;
+
+type ILayerEventProps = IComponent.ILayerEventProps;
+type IEventCollection = IComponent.IEventCollection;
 
 export class LayerEvent {
   constructor(props: ILayerEventProps = {})  {

@@ -1,7 +1,5 @@
 import {DEFAULT_STYLE, PIXEL_RATIO} from "../style/style";
 import {ICanvasTable} from "../typings/CanvasTable";
-import ITableStyle = ICanvasTable.ITableStyle;
-import ICanvasTableProps = ICanvasTable.ICanvasTableProps;
 import {BodySection} from "../table/Body";
 import Scroller, {SCROLLBAR_WIDTH} from "./Scroller";
 import {debounce, isFunction, isNotEmptyArray, percentCalc} from "../utils/utils";
@@ -14,6 +12,10 @@ import Layer from "../component/Layer";
 import Text from "../component/Text";
 import Svg from "../component/Svg";
 import Tooltip from './Tooltip';
+
+type ITableStyle = ICanvasTable.ITableStyle;
+type ICanvasTableProps = ICanvasTable.ICanvasTableProps;
+
 const WRAPPER_PADDING = 0;
 
 class CanvasTable {

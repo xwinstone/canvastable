@@ -1,6 +1,6 @@
 import {ICanvasTable} from "../typings/CanvasTable";
-import IColumnProps = ICanvasTable.IColumnProps;
 
+type IColumnProps = ICanvasTable.IColumnProps;
 
 export class Column {
   constructor(private props: IColumnProps) {

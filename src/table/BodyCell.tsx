@@ -1,11 +1,12 @@
 import LayerText from "../component/Text";
 import {ICanvasTable} from "../typings/CanvasTable";
-import IBodyCellProps = ICanvasTable.IBodyCellProps;
 import {isEmpty, isFunction, toBlank} from "../utils/utils";
 import Layer from "../component/Layer";
 import {IComponent} from "../typings/Component";
-import IEventCollection = IComponent.IEventCollection;
 import {LayerEvent} from "../core/LayerEvent";
+
+type IBodyCellProps = ICanvasTable.IBodyCellProps;
+type IEventCollection = IComponent.IEventCollection;
 
 export class BodyCell extends LayerText {
   constructor(protected props: IBodyCellProps) {

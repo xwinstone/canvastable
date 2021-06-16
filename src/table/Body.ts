@@ -1,11 +1,12 @@
 import {Component} from "../component/Component";
 import {ICanvasTable} from "../typings/CanvasTable";
-import ISectionProps = ICanvasTable.ISectionProps;
 import CanvasTable from "../core/CanvasTable";
 import {BodyRow} from "./BodyRow";
 import {isEmpty} from "../utils/utils";
 import {noData} from "../utils/draw";
 import {obj} from "../typings/common";
+
+type ISectionProps = ICanvasTable.ISectionProps;
 
 export class BodySection extends Component {
   constructor(private props: ISectionProps) {

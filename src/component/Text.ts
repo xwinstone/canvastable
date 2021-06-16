@@ -1,8 +1,9 @@
 import Layer from "./Layer";
 import {text2Ellipsis} from "../utils/draw";
 import {IComponent} from "../typings/Component";
-import ILayerTextProps = IComponent.ILayerTextProps;
 import {toBlank} from "../utils/utils";
+
+type ILayerTextProps = IComponent.ILayerTextProps;
 
 export default class LayerText extends Layer {
   constructor(protected props: ILayerTextProps) {

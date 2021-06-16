@@ -7,8 +7,8 @@ import {IComponent} from "./Component";
 import {obj} from "./common";
 
 export declare module ICanvasTable {
-  import ILayerProps = IComponent.ILayerProps;
-  import IEventCollection = IComponent.IEventCollection;
+  type ILayerProps = IComponent.ILayerProps;
+  type IEventCollection = IComponent.IEventCollection;
 
   interface ITableStyle {
     width?: number

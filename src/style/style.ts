@@ -1,5 +1,5 @@
 import {ICanvasTable} from "../typings/CanvasTable";
-import ITableStyleProps = ICanvasTable.ITableStyleProps;
+type ITableStyleProps = ICanvasTable.ITableStyleProps;
 
 export const DEFAULT_STYLE: ITableStyleProps = {
   width: '100%',

@@ -1,10 +1,11 @@
 import {ICanvasTable} from "../typings/CanvasTable";
-import IHeaderNodeProps = ICanvasTable.IHeaderNodeProps;
 import {treeGetDeep, treeGetLeaf} from "../utils/tree";
 import {isEmpty} from "../utils/utils";
 import LayerText from "../component/Text";
 import Layer from "../component/Layer";
 import {drawLine} from "../utils/draw";
+
+type IHeaderNodeProps = ICanvasTable.IHeaderNodeProps;
 
 class HeaderTreeNode extends LayerText {
   constructor(protected props: IHeaderNodeProps) {

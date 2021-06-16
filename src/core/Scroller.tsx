@@ -1,6 +1,6 @@
 import h, {createRef} from "../utils/h";
 import {ICanvasTable} from "../typings/CanvasTable";
-import ITableScrollerProps = ICanvasTable.ITableScrollerProps;
+type ITableScrollerProps = ICanvasTable.ITableScrollerProps;
 
 export const SCROLLBAR_WIDTH = 10;
 export const BAR_WIDTH = 10;
