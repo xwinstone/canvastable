@@ -72,7 +72,7 @@ const ct = new CanvasTable({
 ct.source = dataSource;
 ```
 结果:
-![basic usage](./assets/basic-usage.png)
+![basic usage](../assets/basic-usage.png)
 
 在线demo: <a href="https://codepen.io/xwinstone/pen/dyMWLgN" target="_blank">点击</a>
 
