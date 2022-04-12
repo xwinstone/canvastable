@@ -8,7 +8,7 @@ a table component got the highest performance that works on canvas! 🚀
 
 80 columns & 100,000 rows data:
 
-![100000*80](./assets/100000*80.gif)
+![100000*80](./assets/100000-80.gif)
 
 ## Feature
 * high performance works on canvas. 🚀
