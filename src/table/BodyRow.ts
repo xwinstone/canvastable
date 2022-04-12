@@ -1,11 +1,12 @@
 import {ICanvasTable} from "../typings/CanvasTable";
-import IRowProps = ICanvasTable.IRowProps;
 import {BodyCell} from "./BodyCell";
 import {isEmpty, isFunction, isNotEmpty} from "../utils/utils";
 import Layer from "../component/Layer";
 import {IComponent} from "../typings/Component";
-import IEventCollection = IComponent.IEventCollection;
 import {LayerEvent} from "../core/LayerEvent";
+
+type IRowProps = ICanvasTable.IRowProps;
+type IEventCollection = IComponent.IEventCollection;
 
 export class BodyRow extends Layer {
   constructor(protected props: IRowProps) {

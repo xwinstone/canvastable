@@ -12,7 +12,7 @@ function getPath (dir = '') {
   return path.resolve(appDirectory, dir)
 }
 
-const PATH_SRC = getPath('src/test');
+const PATH_SRC = getPath('/src/test');
 const PATH_DIST = getPath('devdist');
 const MATCH_NODE_MODULES = '/node_modules/';
 

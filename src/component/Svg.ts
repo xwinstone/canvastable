@@ -1,7 +1,8 @@
 import Layer from "./Layer";
 import {IComponent} from "../typings/Component";
-import ILayerProps = IComponent.ILayerProps;
 import {obj} from "../typings/common";
+
+type ILayerProps = IComponent.ILayerProps;
 
 interface ISvgProps extends ILayerProps{
   path: string;

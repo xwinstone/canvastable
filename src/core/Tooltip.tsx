@@ -1,3 +1,5 @@
+/** @jsx h */
+
 import h from "../utils/h";
 import Layer from "../component/Layer";
 

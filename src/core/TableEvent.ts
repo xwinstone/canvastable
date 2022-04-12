@@ -2,8 +2,9 @@ import CanvasTable from "./CanvasTable";
 import Layer from "../component/Layer";
 import {isEmpty, isNotEmptyArray} from "../utils/utils";
 import {IComponent} from "../typings/Component";
-import IEventCollection = IComponent.IEventCollection;
 import {LayerEvent} from "./LayerEvent";
+
+type IEventCollection = IComponent.IEventCollection;
 
 export class CanvasTableEvent {
   constructor (protected props: {table: CanvasTable}) {

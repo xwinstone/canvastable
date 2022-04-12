@@ -1,12 +1,13 @@
 import {Component} from "../component/Component";
 import {ICanvasTable} from "../typings/CanvasTable";
-import ITableHeaderProps = ICanvasTable.ITableHeaderProps;
 import HeaderTreeNode from "./HeaderTreeNode";
-import IColumn = ICanvasTable.IColumn;
 import {isEmpty} from "../utils/utils";
 import {treeBFEach, treeEach, treeGetLeaf} from "../utils/tree";
 import {Column} from "./Column";
 import {drawLine, drawRect} from "../utils/draw";
+
+type IColumn = ICanvasTable.IColumn;
+type ITableHeaderProps = ICanvasTable.ITableHeaderProps;
 
 export class HeaderTree extends Component {
   constructor(private props: ITableHeaderProps) {
