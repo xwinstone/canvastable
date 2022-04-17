@@ -1,8 +1,7 @@
 const gulp = require('gulp')
 const babel = require('gulp-babel')
 const through2 = require('through2')
-const sass = require('gulp-sass')
-const base64 = require('gulp-base64')
+const sass = require('gulp-sass')(require('sass'))
 const ts = require('gulp-typescript')
 const path = require('path')
 const merge2 = require('merge2')
@@ -35,7 +34,6 @@ function compileScss () {
   console.log('compiling css...')
   return gulp
     .src(['src/**/*.scss'])
-    .pipe(base64())
     .pipe(sass())
     .pipe(gulp.dest(distDir))
 }
